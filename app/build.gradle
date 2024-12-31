@@ -1,0 +1,45 @@
+buildscript {
+    apply {
+        from("$rootDir/app/gradle-mvn-push.gradle")
+
+    }
+}
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.invex.publisheronespan'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.invex.publisheronespan"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+    }
+    buildToolsVersion '29.0.2'
+}
+
+dependencies {
+
+}

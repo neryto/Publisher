@@ -1,0 +1,24 @@
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        library1(MavenPublication){
+            groupId "com.one"
+            artifactId "modulo"
+            version "1.1.0"
+            artifact "$rootDir/app/maven/modulo-1.0.0.aar"
+
+
+            pom.withXml {}
+        }
+    }
+    repositories {
+        maven {
+            url "https://maven.pkg.github.com/neryto/repo"
+            credentials {
+                username = "Private-Token"
+                password = "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"
+            }
+        }
+    }
+}
